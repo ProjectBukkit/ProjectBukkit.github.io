@@ -135,7 +135,7 @@ Additionally, if anyone knows of more platforms with AI character databases that
             {
                 "platform_url": "https://chub.ai",
                 "icon": "https://www.google.com/s2/favicons?domain=chub.ai&sz=128",
-                "total_definitions": 229168,
+                "total_definitions": "229168?",
                 "downloadable": "Always",
                 "in_scope": "Reluctantly, Yes",
                 "added": "TBD"
@@ -151,7 +151,7 @@ Additionally, if anyone knows of more platforms with AI character databases that
             {
                 "platform_url": "https://crushon.ai",
                 "icon": "https://www.google.com/s2/favicons?domain=crushon.ai&sz=128",
-                "total_definitions": 4312,
+                "total_definitions": "4312?",
                 "downloadable": "Always? Unsure.",
                 "in_scope": "Yes",
                 "added": "TBD"
@@ -159,9 +159,9 @@ Additionally, if anyone knows of more platforms with AI character databases that
             {
                 "platform_url": "https://character.ai",
                 "icon": "https://www.google.com/s2/favicons?domain=character.ai&sz=128",
-                "total_definitions": 1000000,
+                "total_definitions": "1,000,000+",
                 "downloadable": "Almost Never",
-                "in_scope": "Yes",
+                "in_scope": "No",
                 "added": "Probably never gonna happen"
             }
         ];
@@ -190,7 +190,11 @@ Additionally, if anyone knows of more platforms with AI character databases that
                 urlCell.appendChild(link);
 
                 const definitionsCell = document.createElement("td");
-                definitionsCell.textContent = formatNumber(entry.total_definitions);
+                if (typeof entry.total_definitions === 'string') {
+                    definitionsCell.textContent = entry.total_definitions;
+                } else {
+                    definitionsCell.textContent = formatNumber(entry.total_definitions);
+                }
 
                 const downloadableCell = document.createElement("td");
                 downloadableCell.textContent = entry.downloadable;
