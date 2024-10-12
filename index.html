@@ -1,0 +1,207 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bukkit List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        h1 img {
+            margin-right: 10px;
+        }
+
+        .divider {
+            width: 90%;
+            height: 2px;
+            background-color: #fff;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #333;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: none;
+            border-bottom: 1px solid #444;
+        }
+
+        th {
+            background-color: #333;
+            text-align: left;
+        }
+
+        .ai-url {
+            display: flex;
+            align-items: center;
+        }
+
+        .ai-url img {
+            width: 30px;
+            filter: invert(1);
+            margin-right: 10px;
+        }
+
+        .ai-url a {
+            color: #00aaff;
+            word-break: break-all;
+        }
+
+        .long-text {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <img src="bukkit.svg" alt="Bukkit Logo" style="filter: invert(1);width: 50px;">
+        Bukkit List
+    </h1>
+    <h1>
+        Current Definitions in the Bukkit Database: 633,534 <sup>(And Counting!)</sup>
+    </h1>
+    <div class="divider"></div>
+
+    <!-- Table where the JSON data will be injected -->
+    <table id="bukkitTable">
+        <thead>
+            <tr>
+                <th>AI Platform URL</th>
+                <th>Total Character Definitions</th>
+                <th>Downloadable character definitions?</th>
+                <th>In Scope?</th>
+                <th>Added to Bukkit?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be inserted here by JavaScript -->
+        </tbody>
+    </table>
+
+    <div class="long-text">
+Bukkit is an ambitious project designed to be a massive, open database of AI character definitions, specifically for roleplaying purposes. The aim of Bukkit is to provide a free and unrestricted platform for people to access and use these character definitions without relying on restrictive or increasingly privatized public websites. Unlike other platforms, Bukkit does not generate text or simulate AI conversations itself. It focuses solely on hosting character profiles, each complete with key roleplaying elements such as personality traits, initial messages, scenarios, and names. These characters are collected and curated through my own methods, ensuring a wide variety of personalities and settings for users to explore.
+
+The motivation behind Bukkit stems from the growing number of AI character websites that have started to lock down their databases, making character definitions private and inaccessible to users. This trend has become a personal frustration for me, as someone who prefers local control over digital content due to my paranoid schizophrenia. The idea of interacting with AI on platforms that might harvest my personal data is uncomfortable, to say the least. Because of this, I’ve long downloaded AI character definitions to use offline for my own peace of mind. However, as more sites turn these character profiles into proprietary assets, it's becoming harder to find and download them for safe, local use.
+
+Bukkit was created as a solution to this problem—a community-driven directory of freely accessible character definitions. By focusing on transparency and openness, it ensures that roleplaying enthusiasts like myself can continue enjoying AI characters in a secure and flexible way, without the fear of invasive data practices or limited access. The project’s long-term vision is to be a definitive repository of AI character profiles, open to anyone who values privacy and creative freedom.
+    </div>
+<sup>Once the Bukkit database surpasses 2 million character definitions, I plan to make it public and fully accessible to anyone interested in AI roleplaying characters. This milestone will mark the point at which the directory becomes a powerful resource for the entire community, offering unrestricted access to a vast collection of AI personas.
+
+Additionally, if anyone knows of more platforms with AI character databases that should be added to the list, or has accurate statistics for how many character definitions exist on each platform, please feel free to create an issue on the GitHub repository:<a href="https://github.com/ProjectBukkit/ProjectBukkit.github.io">ProjectBukkit GitHub Repo</a>. Your contributions will help ensure the data remains comprehensive and up-to-date.</sup>
+    <script>
+        // JSON structure to hold the data for the table
+        const bukkitData = [
+            {
+                "platform_url": "https://janitorai.com",
+                "icon": "https://www.google.com/s2/favicons?domain=janitorai.com&sz=128",
+                "total_definitions": 630328,
+                "downloadable": "Sometimes",
+                "in_scope": "Yes",
+                "added": "TBD"
+            },
+            {
+                "platform_url": "https://chub.ai",
+                "icon": "https://www.google.com/s2/favicons?domain=chub.ai&sz=128",
+                "total_definitions": 229168,
+                "downloadable": "Always",
+                "in_scope": "Reluctantly, Yes",
+                "added": "TBD"
+            },
+            {
+                "platform_url": "https://pephop.ai",
+                "icon": "https://www.google.com/s2/favicons?domain=pephop.ai&sz=128",
+                "total_definitions": 28432,
+                "downloadable": "Always",
+                "in_scope": "Yes",
+                "added": "TBD"
+            },
+            {
+                "platform_url": "https://crushon.ai",
+                "icon": "https://www.google.com/s2/favicons?domain=crushon.ai&sz=128",
+                "total_definitions": 0,
+                "downloadable": "Always? Unsure.",
+                "in_scope": "Yes",
+                "added": "TBD"
+            },
+            {
+                "platform_url": "https://character.ai",
+                "icon": "https://www.google.com/s2/favicons?domain=character.ai&sz=128",
+                "total_definitions": 1000000,
+                "downloadable": "Almost Never",
+                "in_scope": "Yes",
+                "added": "Probably never gonna happen"
+            }
+        ];
+
+        const formatNumber = (num) => {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        };
+
+        bukkitData.sort((a, b) => b.total_definitions - a.total_definitions);
+
+        const generateTable = () => {
+            const tableBody = document.querySelector("#bukkitTable tbody");
+
+            bukkitData.forEach(entry => {
+                const row = document.createElement("tr");
+
+                const urlCell = document.createElement("td");
+                urlCell.classList.add("ai-url");
+                const icon = document.createElement("img");
+                icon.src = entry.icon;
+                icon.alt = "Platform";
+                const link = document.createElement("a");
+                link.href = entry.platform_url;
+                link.textContent = entry.platform_url;
+                urlCell.appendChild(icon);
+                urlCell.appendChild(link);
+
+                const definitionsCell = document.createElement("td");
+                definitionsCell.textContent = formatNumber(entry.total_definitions);
+
+                const downloadableCell = document.createElement("td");
+                downloadableCell.textContent = entry.downloadable;
+
+                const inScopeCell = document.createElement("td");
+                inScopeCell.textContent = entry.in_scope;
+
+                const addedCell = document.createElement("td");
+                addedCell.textContent = entry.added;
+
+                row.appendChild(urlCell);
+                row.appendChild(definitionsCell);
+                row.appendChild(downloadableCell);
+                row.appendChild(inScopeCell);
+                row.appendChild(addedCell);
+
+                tableBody.appendChild(row);
+            });
+        };
+
+        generateTable();
+    </script>
+</body>
+</html>
