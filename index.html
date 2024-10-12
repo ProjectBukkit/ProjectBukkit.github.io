@@ -208,6 +208,10 @@ Additionally, if anyone knows of more platforms with AI character databases that
                 addedCell.textContent = entry.added;
                 
                 const additional_infoCell = document.createElement("td");
+                additional_infoCell.style["font-size"] ="10px"
+                additional_infoCell.style["max-width"] = "50px"
+                additional_infoCell.style.overflow = "overlay"
+                
                 additional_infoCell.textContent = entry.additional_info;
 
                 row.appendChild(urlCell);
