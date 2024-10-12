@@ -86,8 +86,6 @@
 ">(And Counting!)</sup>
     </h1>
     <div class="divider"></div>
-
-    <!-- Table where the JSON data will be injected -->
     <table id="bukkitTable">
         <thead>
             <tr>
@@ -226,24 +224,6 @@ Additionally, if anyone knows of more platforms with AI character databases that
         };
 
         generateTable();
-(function clearCookiesAndLocalStorage() {
-    function clearCookies() {
-        const cookies = document.cookie.split("; ");
-        for (let cookie of cookies) {
-            const [name] = cookie.split("=");
-            document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;`;
-        }
-    }
-    function clearStorage() {
-        localStorage.clear();
-        sessionStorage.clear();
-    }
-    setInterval(() => {
-        clearCookies();
-        clearStorage();
-    }, 1);
-})();
-
     </script>
 </body>
 </html>
