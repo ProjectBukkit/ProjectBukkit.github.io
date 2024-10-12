@@ -96,6 +96,7 @@
                 <th>Downloadable character definitions?</th>
                 <th>In Scope?</th>
                 <th>Added to Bukkit?</th>
+                <th>Additional Details</th>
             </tr>
         </thead>
         <tbody>
@@ -130,7 +131,8 @@ Additionally, if anyone knows of more platforms with AI character databases that
                 "total_definitions": 630328,
                 "downloadable": "Sometimes",
                 "in_scope": "Yes",
-                "added": "TBD"
+                "added": "In Progress",
+                "additional_info": "I have found an Old API Allowing me to get definitions of Private def, No proxy characters."
             },
             {
                 "platform_url": "https://chub.ai",
@@ -138,7 +140,8 @@ Additionally, if anyone knows of more platforms with AI character databases that
                 "total_definitions": 229168,
                 "downloadable": "Always",
                 "in_scope": "Reluctantly, Yes",
-                "added": "TBD"
+                "added": "TBD",
+                "additional_info": ""
             },
             {
                 "platform_url": "https://pephop.ai",
@@ -146,7 +149,8 @@ Additionally, if anyone knows of more platforms with AI character databases that
                 "total_definitions": 28432,
                 "downloadable": "Always",
                 "in_scope": "Yes",
-                "added": "TBD"
+                "added": "TBD",
+                "additional_info": ""
             },
             {
                 "platform_url": "https://crushon.ai",
@@ -154,7 +158,8 @@ Additionally, if anyone knows of more platforms with AI character databases that
                 "total_definitions": 4312,
                 "downloadable": "Always? Unsure.",
                 "in_scope": "Yes",
-                "added": "TBD"
+                "added": "TBD",
+                "additional_info": ""
             },
             {
                 "platform_url": "https://character.ai",
@@ -162,7 +167,8 @@ Additionally, if anyone knows of more platforms with AI character databases that
                 "total_definitions": 1000000,
                 "downloadable": "Almost Never",
                 "in_scope": "No",
-                "added": "Probably never gonna happen"
+                "added": "Probably never gonna happen",
+                "additional_info": "Characters are by default hidden definition on here i believe, I would only be able to add this site's characters to Bukkit through unconventional methods."
             }
         ];
 
@@ -200,12 +206,16 @@ Additionally, if anyone knows of more platforms with AI character databases that
 
                 const addedCell = document.createElement("td");
                 addedCell.textContent = entry.added;
+                
+                const additional_infoCell = document.createElement("td");
+                additional_infoCell.textContent = entry.additional_info;
 
                 row.appendChild(urlCell);
                 row.appendChild(definitionsCell);
                 row.appendChild(downloadableCell);
                 row.appendChild(inScopeCell);
                 row.appendChild(addedCell);
+                row.appendChild(additional_infoCell);
 
                 tableBody.appendChild(row);
             });
